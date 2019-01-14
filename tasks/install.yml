@@ -1,0 +1,14 @@
+---
+- name: Create base dir {{ nextcloud_docker_base_dir }}
+  file:
+    dest: "{{ nextcloud_docker_base_dir }}"
+    state: directory
+
+- name: Create environment
+  block:
+    - copy:
+        dest: "{{ nextcloud_docker_base_dir }}"
+        src: files/docker-compose.yml
+    - template:
+        dest: "{{ nextcloud_docker_base_dir }}"
+        src: templates/.env

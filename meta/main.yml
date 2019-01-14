@@ -1,0 +1,17 @@
+galaxy_info:
+  author: theenglishway
+  description: ssh setup
+
+  license: BSD
+
+  min_ansible_version: 2.4
+
+dependencies:
+  - name: docker
+    become: yes
+  - name: pip
+    become: yes
+    vars:
+      pip_install_packages:
+        - docker
+        - docker-compose

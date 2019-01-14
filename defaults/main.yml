@@ -1,0 +1,4 @@
+---
+nextcloud_port: 8080
+
+nextcloud_docker_base_dir: "{{ admin_home }}/nextcloud/"

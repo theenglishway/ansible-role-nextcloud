@@ -1,0 +1,5 @@
+---
+- name: Start service
+  docker_service:
+    project_src: "{{ nextcloud_docker_base_dir }}"
+    state: present
