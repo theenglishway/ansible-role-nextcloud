@@ -1,5 +1,8 @@
 ---
 nextcloud_port: 8080
+nextcloud_subdomain_name:
+nextcloud_domain_name:
+nextcloud_server_name:
 
 nextcloud_docker_base_dir: "{{ admin_home }}/nextcloud/"
 nextcloud_config_dir: "{{ nextcloud_docker_base_dir }}/config"
