@@ -28,15 +28,16 @@ services:
       - MYSQL_USER=nextcloud
 
   app:
-    image: nextcloud
+    image: nextcloud:fpm
     ports:
       - ${NEXTCLOUD_EXTERNAL_PORT}:80
+      - 9000:9000
     depends_on:
       - db
     networks:
       - nextcloud
     volumes:
-      - root:/var/www/html
+      - ${NEXTCLOUD_ROOT_DIR}:/var/www/html
       - apps:/var/www/html/custom_apps
       - ${NEXTCLOUD_CONFIG_DIR}:/var/www/html/config
       - data:/var/www/html/data

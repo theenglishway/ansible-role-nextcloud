@@ -1,4 +1,11 @@
 ---
+- name: Create root directory
+  become: yes
+  file:
+    dest: "{{ nextcloud_root_dir }}"
+    state: directory
+    group: www-data
+
 - name: Create directories
   file:
     dest: "{{ item }}"
