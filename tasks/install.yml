@@ -1,8 +1,11 @@
 ---
-- name: Create base dir {{ nextcloud_docker_base_dir }}
+- name: Create directories
   file:
-    dest: "{{ nextcloud_docker_base_dir }}"
+    dest: "{{ item }}"
     state: directory
+  loop:
+    - "{{ nextcloud_docker_base_dir }}"
+    - "{{ nextcloud_config_dir }}"
 
 - name: Create environment
   block:

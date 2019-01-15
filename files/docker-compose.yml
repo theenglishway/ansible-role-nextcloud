@@ -1,7 +1,9 @@
 version: '2'
 
 volumes:
-  nextcloud:
+  root:
+  data:
+  apps:
   db:
 
 networks:
@@ -34,7 +36,10 @@ services:
     networks:
       - nextcloud
     volumes:
-      - nextcloud:/var/www/html
+      - root:/var/www/html
+      - apps:/var/www/html/custom_apps
+      - ${NEXTCLOUD_CONFIG_DIR}:/var/www/html/config
+      - data:/var/www/html/data
     restart: always
     environment:
       - MYSQL_DATABASE=nextcloud
