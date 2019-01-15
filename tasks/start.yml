@@ -3,3 +3,9 @@
   docker_service:
     project_src: "{{ nextcloud_docker_base_dir }}"
     state: present
+  register: output
+
+- assert:
+    that:
+      - "app.nextcloud_app_1.state.running"
+      - "db.nextcloud_db_1.state.running"
