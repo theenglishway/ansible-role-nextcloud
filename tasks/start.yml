@@ -1,7 +1,7 @@
 ---
 - name: Start service
   docker_service:
-    project_src: "{{ nextcloud_docker_base_dir }}"
+    project_src: "{{ nextcloud_docker_project_dir }}"
     state: present
   register: output
 

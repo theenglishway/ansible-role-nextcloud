@@ -18,6 +18,7 @@ services:
       - 3306:3306
     volumes:
       - db:/var/lib/mysql
+      - ${NEXTCLOUD_BACKUP_DIR}:/backup
     networks:
       - nextcloud
     environment:
@@ -40,6 +41,7 @@ services:
       - apps:/var/www/html/custom_apps
       - ${NEXTCLOUD_CONFIG_DIR}:/var/www/html/config
       - data:/var/www/html/data
+      - ${NEXTCLOUD_BACKUP_DIR}:/backup
     restart: always
     environment:
       - MYSQL_DATABASE=nextcloud
