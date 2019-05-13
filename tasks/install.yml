@@ -11,9 +11,9 @@
 
 - name: Create environment
   block:
-    - copy:
+    - template:
         dest: "{{ nextcloud_docker_project_dir }}"
-        src: files/docker-compose.yml
+        src: templates/docker-compose.yml
     - template:
         dest: "{{ nextcloud_docker_project_dir }}"
         src: templates/.env
@@ -23,4 +23,11 @@
   template:
     src: templates/backup_pre_hook.sh
     dest: "{{ borg_scripts_root }}/backup_nextcloud_pre.sh"
+    mode: +x
+
+- name: Install restore script
+  become: yes
+  template:
+    src: templates/restore_post_hook.sh
+    dest: "{{ borg_scripts_root }}/restore_nextcloud_post.sh"
     mode: +x
